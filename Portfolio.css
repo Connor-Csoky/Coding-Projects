@@ -1,0 +1,334 @@
+/* standards  */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.flex {
+    display: flex;
+    gap: 2rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    overflow: hidden;
+    background: white;
+}
+
+
+.primary-h1 {
+    color: white;
+}
+
+/* header */
+
+.primary-header {
+    display: flex;
+    position: relative;
+    background-color: transparent;
+    width: 100%;
+    visibility: hidden;
+    opacity: 0;
+    justify-content: space-between;
+    padding: 0 1rem 0 1rem;
+    align-items: center;
+    height: 4rem;
+    z-index: 9980;
+    transition-delay: 1.2s;
+    /* border: 1px solid black; */
+}
+
+.primary-header > * {
+    z-index: 9980;
+    transition-delay: 1s linear;
+}
+
+.primary-nav {
+    list-style: none;
+    z-index: 9999;
+
+}
+
+    /* header > links  */
+
+    .navLinks {
+        font-weight: 800;
+        color: white;
+    }
+
+    .navLinks:hover {
+        color: blue;
+    }
+
+    .navLinks:active {
+        color: blue;
+    }
+
+    /* header > collapsable nav  */
+
+    .collapsed {
+        display: none;
+    }
+
+    .mobile-nav-toggle {
+        display: none;
+    }
+
+    
+    @media (max-width: 50em) {
+        .primary-nav {
+            gap: 3rem;
+            
+            position: fixed;
+            inset: 0 0 0 30%;
+
+            flex-direction: column;
+            padding: min(30vh, 10rem) 2em;
+
+            background: hsl(0 0% 100% / 0.1);
+            backdrop-filter: 1rem;
+
+            transform: translateX(100%);
+            transition: transform 350ms ease-out;
+
+        }
+
+        .primary-nav[data-visible="true"] {
+            transform: translate(0%);
+        }
+
+        .mobile-nav-toggle {
+            position: absolute;
+            background: url();
+            width: 2rem;
+            aspect-ratio: 1;
+            top: 2rem;
+            right: 2rem;
+            z-index: 9999;
+            display: unset;
+        }
+    }
+
+    .burger {
+        width: 35px;
+        height: 5px;
+        background-color: #333;
+        margin: 6px 0;
+    }
+    
+
+/* main */
+
+
+/* arcade machine */
+
+/* .arcade-container {
+    
+} */
+
+.arcade-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    width: 80vw;
+    height: 60vh;
+}
+
+.outside-screen {
+    position: absolute;
+    width: 100vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 101vh;
+    background-color: rgb(39, 39, 39)
+}
+
+.arcade-wording {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+    font-weight: bold;
+    color: yellow;
+    font-size: 14vh;
+}
+
+.arcade-new-game {
+    text-align: center;
+    font-weight: bold;
+    color: yellow;
+    font-size: 11vh;
+    z-index: 1000;
+}
+
+.arcade-any-key {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-size: 6vh;
+    z-index: 1000;
+}
+
+.arcade-joystick {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 30%;
+    top: 75%;
+}
+
+.arcade-joystick-ball {
+    position: absolute;
+    background-color: red;
+    border-radius: 100%;
+    width: 6vw;
+    height: 10vh;
+    z-index: 1000;
+}
+
+.arcade-joystick-rod {
+    position: absolute;
+    background-color: silver;
+    width: 1vw;
+    height: 20vh;
+    z-index: 999;
+}
+
+.arcade-depth-line {
+    background-color: black;
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    transition: 1s linear;
+}
+
+.line1 {
+    top: 15%; 
+}
+
+.line2 {
+    top: 85%;
+}
+
+.arcade-button-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.arcade-button {
+    position: absolute;
+    border-radius: 100%;
+    background-color: red;
+    box-shadow: -1px 1px 5px rgb(0, 0, 0);
+    width: 4vw;
+    height: 4vh;
+    transition: 1s linear;
+}
+
+.button1 {
+    top: 93%;
+    left: 60%;
+}
+
+.button2 {
+    top: 93%;
+    left: 70%;
+}
+
+.button3 {
+    top: 88%;
+    left: 65%;
+}
+
+.button4 {
+    top: 88%;
+    left: 75%;
+}
+
+/* transition */
+
+.arcade-screen[data-fullscreen="true"] {
+    transition: height 1s linear, width 1s linear;
+    width: 100vw;
+    height: 100vh;
+}
+
+.line2[data-fullscreen="true"] {
+    top: 110%;
+    height: 10px;
+}
+
+.line1[data-fullscreen="true"] {
+    top: -10%;
+    height: 10px;
+}
+
+.arcade-joystick[data-fullscreen="true"] {
+    transition: 1s linear;
+    top: 105%;
+    left: 20%;
+}
+
+.button1[data-fullscreen="true"] {
+    top: 116%;
+    left: 70%;
+}
+
+.button2[data-fullscreen="true"] {
+    top: 116%;
+    left: 80%;
+}
+
+.button3[data-fullscreen="true"] {
+    top: 111%;
+    left: 75%;
+}
+
+.button4[data-fullscreen="true"] {
+    top: 111%;
+    left: 85%;
+}
+
+
+.arcade-wording[data-fullscreen="true"] {
+    transition: 1s top linear;
+    top: -25%;
+
+}
+
+.arcade-new-game[data-fullscreen="true"] {
+    font-size: 15vh;
+    transition: 1s font-size linear, 1.5s opacity linear;
+    opacity: 0;
+    user-select: none;
+}
+.arcade-any-key[data-fullscreen="true"] {
+    font-size: 9vh;
+    transition: 1s font-size linear, 1.5s opacity linear;
+    opacity: 0;
+    user-select: none;
+}
+
+.primary-header[data-fullscreen="true"] {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
+
+
+
