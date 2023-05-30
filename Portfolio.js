@@ -77,6 +77,14 @@ function playGame(url) {
     document.querySelector(".arcade-game").src = url;
     document.querySelector(".arcade-game").style.opacity = "1";
     document.querySelector(".arcade-game").style.visibility = "visible";
+    document.querySelector(".arcade-return-button").style.display = "unset"
+}
+
+function gameReturn() {
+    document.querySelector(".arcade-game").src = "";
+    document.querySelector(".arcade-game").style.opacity = "0";
+    document.querySelector(".arcade-game").style.visibility = "hidden";
+    document.querySelector(".arcade-return-button").style.display = "none"
 }
 
 

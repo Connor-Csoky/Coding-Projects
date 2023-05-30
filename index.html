@@ -20,6 +20,7 @@
                 transition: 2s opacity linear;
                 user-select: none;
                 cursor:auto;
+                bottom: 20vh;
             }
         
             .swiper {
@@ -105,6 +106,7 @@
                             </div>
                         </div>
                         <iframe class="arcade-game" src="" frameborder="0"></iframe>
+                        <button class="arcade-return-button" onclick="gameReturn()">Return</button>
                     </div>
                     
 
@@ -136,7 +138,6 @@
                 effect: "coverflow",
                 loop: true,
                 effect: "cube",
-                // grabCursor: true,
                 cubeEffect: {
                     shadow: true,
                     slideShadows: true,
