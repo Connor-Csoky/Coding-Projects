@@ -180,6 +180,9 @@ body {
     right: 2vw;
     z-index: 10000;
     display: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .screen-protector {
