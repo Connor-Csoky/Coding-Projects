@@ -1,9 +1,3 @@
-// $( document ).ready(function() {
-//     setInterval(function (e) {
-        
-//         
-//     }, 1000/15);
-// });
 
 
 function toggle(){
@@ -20,6 +14,7 @@ function toggle(){
 
 
 function screenGrow() {
+    console.log("testing")
     const screen = document.querySelector(".arcade-screen");
     const line1 = document.querySelector(".line1");
     const line2 = document.querySelector(".line2");
@@ -32,7 +27,11 @@ function screenGrow() {
     const newGame = document.querySelector(".arcade-new-game");
     const anyKey = document.querySelector(".arcade-any-key");
     const primaryHeader = document.querySelector(".primary-header");
+    const swiperContainer = document.querySelector(".swiper-container");
+    const arcadeSelect = document.querySelector(".arcade-select");
+    const screenProtector = document.querySelector(".screen-protector");
     const fullscreen = screen.getAttribute("data-fullscreen");
+
     
     if(fullscreen == "false") {
         screen.setAttribute("data-fullscreen", "true");
@@ -47,6 +46,37 @@ function screenGrow() {
         newGame.setAttribute("data-fullscreen", "true");
         anyKey.setAttribute("data-fullscreen", "true");
         primaryHeader.setAttribute("data-fullscreen", "true");
-        
+        swiperContainer.setAttribute("data-fullscreen", "true");
+        arcadeSelect.setAttribute("data-fullscreen", "true");
+        protectorRemove()
+        swiperChange(4);
+        swiperGrab();
+    }
+
+    function swiperChange(test) {
+        setTimeout(function(){
+            swiper.slideTo(test, 2000);
+        }, 2000);
+    }
+
+    function swiperGrab() {
+        setTimeout(function() {
+            document.querySelector('.swiper-container').style.cursor = "grab";
+        }, 3500);
+    }
+
+    function protectorRemove() {
+        setTimeout(function() {
+            screenProtector.setAttribute("data-fullscreen", "true");
+        }, 3500);
     }
 }
+
+
+function playGame(url) {
+    document.querySelector(".arcade-game").src = url;
+    document.querySelector(".arcade-game").style.opacity = "1";
+    document.querySelector(".arcade-game").style.visibility = "visible";
+}
+
+

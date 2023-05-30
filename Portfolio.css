@@ -4,6 +4,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 
 .flex {
@@ -62,11 +63,11 @@ body {
     }
 
     .navLinks:hover {
-        color: blue;
+        color: yellow;
     }
 
     .navLinks:active {
-        color: blue;
+        color: yellow;
     }
 
     /* header > collapsable nav  */
@@ -127,10 +128,6 @@ body {
 
 /* arcade machine */
 
-/* .arcade-container {
-    
-} */
-
 .arcade-screen {
     display: flex;
     justify-content: center;
@@ -139,7 +136,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: black;
+    background-color: #080808;
     width: 80vw;
     height: 60vh;
 }
@@ -151,7 +148,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     height: 101vh;
-    background-color: rgb(39, 39, 39)
+    background-color: rgb(39, 39, 39);
 }
 
 .arcade-wording {
@@ -163,6 +160,25 @@ body {
     font-weight: bold;
     color: yellow;
     font-size: 14vh;
+}
+
+.arcade-game {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: 1s linear;
+    z-index: 10000;
+    padding-top: 4rem;
+    /* background: red; */
+}
+
+.screen-protector {
+    width: 100%;
+    height: 100%;
+    z-index: 10001;
+    position: absolute;
 }
 
 .arcade-new-game {
@@ -181,12 +197,22 @@ body {
     z-index: 1000;
 }
 
+.arcade-select {
+    position: absolute;
+    top: 8%;
+    color: yellow;
+    font-size: 11vh;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+}
+
 .arcade-joystick {
     display: flex;
     justify-content: center;
     position: absolute;
-    left: 30%;
-    top: 75%;
+    left: 27%;
+    top: 73%;
 }
 
 .arcade-joystick-ball {
@@ -202,8 +228,20 @@ body {
     position: absolute;
     background-color: silver;
     width: 1vw;
-    height: 20vh;
+    height: 19vh;
     z-index: 999;
+    box-shadow: 1px -5px 5px 1px black;
+    margin-top: 7%;
+}
+
+.arcade-joystick-base {
+    border-radius: 100%;
+    background-color: #858585;
+    width: 6vw;
+    height: 6vh;
+    z-index: 998;
+    margin-top: 17vh;
+    box-shadow: 2px -2px 5px 1px black;
 }
 
 .arcade-depth-line {
@@ -325,6 +363,19 @@ body {
     opacity: 1;
     visibility: visible;
 }
+
+.arcade-select[data-fullscreen="true"] {
+    opacity: 1;
+    visibility: visible;
+    transition: 2s opacity linear;
+    transition-delay: 2s;
+}
+
+.screen-protector[data-fullscreen="true"] {
+    z-index: 0;
+}
+
+
 
 
 

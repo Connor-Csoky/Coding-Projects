@@ -3,19 +3,69 @@
         <title>Connor Csoky Portfolio</title>
         <link rel="stylesheet" href="Portfolio.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
         <script src="Portfolio.js"></script>
+        <style>
+            .swiper-container {
+                height: 50%;
+                width: 50%;
+                visibility: hidden;
+                opacity: 0;
+                position: absolute;
+                background: #080808;
+                font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+                font-size: 14px;
+                margin: 0;
+                padding: 0;
+                transition: 2s opacity linear;
+                user-select: none;
+                cursor:auto;
+            }
+        
+            .swiper {
+                width: 100%;
+                height: 100%;
+            }
+        
+            .swiper-slide {
+                text-align: center;
+                font-size: 18px;
+                background: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        
+            .swiper-slide img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                /* object-fit: cover; */
+            }
+        
+            .swiper {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .swiper-container[data-fullscreen="true"] {
+                opacity: 1;
+                visibility: visible;
+                transition-delay: 2s;
+            }
+
+
+        </style>
     </head>
-    <body>
+    <body>        
         <header class="primary-header">
             <h1 class="primary-h1">Connor Csoky</h1>
-
             <div class="mobile-nav-toggle" onclick="toggle()"
             aria-controls="primary-nav" aria-expanded="false">
             <div class="burger"></div>
             <div class="burger"></div>
             <div class="burger"></div>
             </div>
-
             <nav>
                 <ul data-visible="false" class="primary-nav flex" data-fullscreen="false">
                     <li><a class="navLinks" href="#PersonalInfo">Personal Info</a></li>
@@ -35,17 +85,35 @@
 
                     <div class="arcade-screen"  data-fullscreen="false"
                     onclick="screenGrow()">
+                        <div class="screen-protector" data-fullscreen="false"></div>
                         <div>
                             <p class="arcade-new-game" data-fullscreen="false">New Game</p>
                             <p class="arcade-any-key" data-fullscreen="false">Press any key</p>
                         </div>
+                        <h1 class="arcade-select" data-fullscreen="false">Select a Game</h1>
+                        <div class="swiper-container" data-fullscreen="false">
+                            <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                <div data-fullscreen="false" onclick="playGame('https://connor-csoky.github.io/Galaga-Remake/')" class="swiper-slide"><img src="images/galagacover.jpg" alt=""></div>
+                                <div data-fullscreen="false" onclick="playGame('https://connor-csoky.github.io/Rock-Paper-Scissors/')" class="swiper-slide"><img src="images/rockPaperScissors.jpg" alt=""></div>
+                                <div data-fullscreen="false" onclick="playGame('https://connor-csoky.github.io/tictactoe/')" class="swiper-slide"><img src="images/tictactoe.png" alt=""></div>
+                                <div data-fullscreen="false" onclick="playGame('https://connor-csoky.github.io/Frogger-Remake/')" class="swiper-slide"><img src="images/Froggercover.png" alt=""></div>
+                            </div>
+                            <div class="swiper-button-next swiper-button"></div>
+                            <div class="swiper-button-prev swiper-button"></div>
+                            <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                        <iframe class="arcade-game" src="" frameborder="0"></iframe>
                     </div>
+                    
 
                     <div class="arcade-depth-line line2" data-fullscreen="false"></div>
 
                     <div class="arcade-joystick">
                         <div class="arcade-joystick-ball"></div>
                         <div class="arcade-joystick-rod"></div>
+                        <div class="arcade-joystick-base"></div>
                     </div>
 
                     <div class="arcade-button-container">
@@ -54,12 +122,33 @@
                         <div class="arcade-button button3" data-fullscreen="false"></div>
                         <div class="arcade-button button4" data-fullscreen="false"></div>
                     </div>
-                    
                 </div>
             </div>
             <footer>
             
             </footer>
         </main>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                effect: "coverflow",
+                loop: true,
+                effect: "cube",
+                // grabCursor: true,
+                cubeEffect: {
+                    shadow: true,
+                    slideShadows: true,
+                    shadowOffset: 20,
+                    shadowScale: 0.94,
+                },
+                centeredSlides: true,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        </script>
     </body>
 </html>
